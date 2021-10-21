@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="parrafo"></p>
+  <script>
+    let frase = prompt("Introduzca una sentencia:");
+    document.getElementById("parrafo").innerHTML = "La frase que has introducido es " + frase + " y la frase sin numeros es ";
+
+    for (let i = 0; i <= frase.length; i++) {
+      if (isNaN(frase.charAt(i))) {
+        document.getElementById("parrafo").innerHTML += frase.charAt(i);
+      }
+    }
+  </script>
+</body>
+</html>
