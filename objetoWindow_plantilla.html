@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>UT3 Objeto Window</title>
+    </head>
+
+    <body>
+
+        <h1>El BOM</h1>
+        <h2>El objeto Window</h2>
+
+        <p id="parrafo"></p>
+
+        <iframe id="fr1" src="https://html.spec.whatwg.org/multipage/window-object.html" width="40%" height="150"></iframe>
+        <iframe src="https://wikipedia.com" width="40%" height="150"></iframe>
+
+        <p id="ifr"></p>
+
+        <button id="boton1" onclick="crearVentana()">Crear Ventana</button>
+        <button id="boton2" onclick="cerrarVentana()">Cerrar Ventana</button>
+        <button id="boton3" onclick="redimensionarVentana()">Resize Ventana</button>
+        <button id="boton4" onclick="moverVentana()">Mover Ventana</button>
+        <button id="boton5" onclick="retardoVentana()">Alert 3s</button>
+        <button id="boton6" onclick="quitarRetardo()">Clear Retardo</button>
+        <button id="boton7" onclick="intervaloReloj()">Intervalo</button>
+        <button id="boton8" onclick="quitarIntervalo()">Clear Int</button>
+
+
+        <p id = "ventanas"></p>
+      
+        <p id = "reloj"></p>
+
+        <script>
+      
+         //PROPIEDADES BÁSICAS DEL OBJETO WINDOW    
+        
+            objWindow();            //Llamo a la función antes para que muestre info antes de evento
+
+            function objWindow() { 
+                let cadena = "";
+                //Nombre de la ventana
+                window.name = "Mi ventana";
+                cadena += `Información <br> Nombre: ${window.name}`;
+
+                //Tamaño ventana con toolbar y scrollbar
+                cadena += `<br> Alto externo: ${window.outerHeight} <br> Ancho externo: ${window.outerWidth}`;            
+                
+                //Tamaño ventana con scrollbar
+                cadena += `<br> Alto externo: ${window.innerHeight} <br> Ancho externo: ${window.innerWidth}`;            
+                
+                //Posición del scroll. Devuelve el nº de píxeles donde se encuentre
+                cadena += `<br> Scroll horizontal: ${window.scrollX}`;
+                cadena += `<br> Scroll vertical: ${window.scrollY}`;
+
+                //Distancia desde la esquina superior izquierda:
+                cadena += `<br> Distancia desde la izquierda: ${window.screenX}`;
+                cadena += `<br> Distancia desde arriba: ${window.screenY}`
+
+                //Visualizamos
+                document.getElementById("parrafo").innerHTML = cadena;
+            }
+
+            window.onresize = objWindow;
+           
+            
+        //  PROPIEDADES DE IFRAMES
+      
+            let cad2 = "";
+            cad2 += "<br> El numero de frames de la pagina es " + window.length;
+            cad2 += "<br> La pagina actual no está insertada en un frame . frameElement devuelve: " + window.frameElement;
+            cad2 += "<br> El frame donde está incluido el iframe1 es: " + window.frames[0].frameElement;
+            document.getElementById("ifr").innerHTML = cad2;
+
+            
+
+
+            // Visualizamos
+
+        //METODOS DEL OBJETO WINDOW Y PROPIEDADES DE OTRAS VENTANAS
+
+            let ventanaNueva;
+
+            function crearVentana(){
+               
+            }
+
+            function cerrarVentana(){
+              
+            }
+
+            function redimensionarVentana(){
+               
+            }
+
+            function moverVentana(){
+               
+            }
+
+        //MÉTODOS DE INSTRUCCIONES DE TIEMPO    
+
+            function saludo(){
+               
+            }
+
+                      
+            function retardoVentana(){
+               
+            }
+
+            function quitarRetardo(){
+               
+            }
+
+           
+            function reloj(){
+               
+            }
+
+            function intervaloReloj(){
+               
+            }
+
+            function quitarIntervalo(){
+               
+            }
+
+        </script>
+
+    </body>
+     
+</html>
