@@ -41,6 +41,7 @@
 
             function objWindow() { 
                 let cadena = "";
+
                 //Nombre de la ventana
                 window.name = "Mi ventana";
                 cadena += `Información <br> Nombre: ${window.name}`;
@@ -71,60 +72,78 @@
             let cad2 = "";
             cad2 += "<br> El numero de frames de la pagina es " + window.length;
             cad2 += "<br> La pagina actual no está insertada en un frame . frameElement devuelve: " + window.frameElement;
-            cad2 += "<br> El frame donde está incluido el iframe1 es: " + window.frames[0].frameElement;
+            cad2 += "<br> El iframe que contiene al iframe1 es: " + window.frames[0].frameElement;
             document.getElementById("ifr").innerHTML = cad2;
 
-            
-
-
-            // Visualizamos
 
         //METODOS DEL OBJETO WINDOW Y PROPIEDADES DE OTRAS VENTANAS
 
             let ventanaNueva;
 
             function crearVentana(){
-               
+                /*  _self la abre en la misma pestaña 
+                    _parent te machaca al padre (osea si eres un iframe, pues lo abre el en la ventana que contenia el iframe).
+                            Si eres ya la ventana normal y no tienes padre, lo abres en ti mismo, osea funcionaria como el self.
+                    _blank abre una nueva pestaña
+                */
+                ventanaNueva = window.open("about:blank", "_blank", "width=600,height=300");
+                ventanaNueva.document.write("<head><title>Pagina Secundaria</title></head>");
+
+                let cad3 = "";
+                cad3 += "<br> El padre de la nueva ventana es: " + ventanaNueva.parent; // No tiene padre pero devuelve la ventana que la ha abierto, 
+                                                                                        // sin embargo no accede a la propiedad name, en fin, javascript
+                cad3 += "<br> La ventana que ha abierto la nueva es: " + ventanaNueva.opener.name;
+                cad3 += "<br> El padre del iframe2 es: " + window.frames[1].parent.name;
+                
+                document.getElementById("parrafo").innerHTML += cad3;
             }
 
             function cerrarVentana(){
-              
+                ventanaNueva.close();
             }
 
             function redimensionarVentana(){
-               
+                ventanaNueva.focus(); //para que no se mande atras al estar interactuando con la principal
+                ventanaNueva.resizeBy(10,10);  
             }
 
             function moverVentana(){
-               
+                ventanaNueva.focus();
+                ventanaNueva.moveBy(10,10);  
             }
 
         //MÉTODOS DE INSTRUCCIONES DE TIEMPO    
 
             function saludo(){
-               
+               alert("Hola")
             }
 
+            let time;
                       
             function retardoVentana(){
+               time = window.setTimeout(saludo, 3000);
                
             }
 
             function quitarRetardo(){
-               
+               window.clearTimeout(time); //Hay que ejecutar esto cuando ya el contador esté activo para poder cancelar ese alert ejecutado.
             }
 
            
             function reloj(){
-               
+             let clk = new Date();
+             document.getElementById("reloj").innerHTML = "Hora: " + clk.getHours() + ":" + clk.getMinutes() + ":" + clk.getSeconds();
+
             }
 
+            let relojPeriodico;
+
             function intervaloReloj(){
-               
+               relojPeriodico = setInterval(reloj, 1000);
             }
 
             function quitarIntervalo(){
-               
+               window.clearInterval(relojPeriodico);
             }
 
         </script>
