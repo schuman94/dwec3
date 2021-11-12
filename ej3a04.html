@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 3A04</title>
+</head>
+<body>
+  <button id="generador" onclick="generar()">Generar</button>
+  <p id="parrafo"></p>
+  <script>
+    //Hay que corregirlo
+    //El rango es el valor maximo y el minimo
+    function generar() {
+      document.getElementById("parrafo").innerHTML = "";
+      let rango = 21;
+      for(let i = 0; i<10; i++) {
+        num = Math.floor(Math.random() * rango);
+        document.getElementById("parrafo").innerHTML += `${num}<br>`;
+      }
+    }
+  </script>
+</body>
+</html>

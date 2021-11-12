@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3A01</title>
+</head>
+<body>
+  <p id="parrafo"></p>
+  <script>
+    let frase = prompt("Introduzca una sentencia:");
+
+    for (let i = 0; i <= frase.length; i++) {
+      if (frase.charAt(i) == ' ' || isNaN(frase.charAt(i))) {
+        document.getElementById("parrafo").innerHTML += frase.charAt(i);
+      }
+    }
+  </script>
+</body>
+</html>

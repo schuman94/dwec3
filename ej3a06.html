@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>UT3 Objeto Window</title>
+        <title>Ejercicio 3A06</title>
     </head>
 
     <body>
@@ -30,16 +30,16 @@
 
 
         <p id = "ventanas"></p>
-      
+
         <p id = "reloj"></p>
 
         <script>
-      
-         //PROPIEDADES BÁSICAS DEL OBJETO WINDOW    
-        
+
+         //PROPIEDADES BÁSICAS DEL OBJETO WINDOW
+
             objWindow();            //Llamo a la función antes para que muestre info antes de evento
 
-            function objWindow() { 
+            function objWindow() {
                 let cadena = "";
 
                 //Nombre de la ventana
@@ -47,11 +47,11 @@
                 cadena += `Información <br> Nombre: ${window.name}`;
 
                 //Tamaño ventana con toolbar y scrollbar
-                cadena += `<br> Alto externo: ${window.outerHeight} <br> Ancho externo: ${window.outerWidth}`;            
-                
+                cadena += `<br> Alto externo: ${window.outerHeight} <br> Ancho externo: ${window.outerWidth}`;
+
                 //Tamaño ventana con scrollbar
-                cadena += `<br> Alto externo: ${window.innerHeight} <br> Ancho externo: ${window.innerWidth}`;            
-                
+                cadena += `<br> Alto externo: ${window.innerHeight} <br> Ancho externo: ${window.innerWidth}`;
+
                 //Posición del scroll. Devuelve el nº de píxeles donde se encuentre
                 cadena += `<br> Scroll horizontal: ${window.scrollX}`;
                 cadena += `<br> Scroll vertical: ${window.scrollY}`;
@@ -65,10 +65,10 @@
             }
 
             window.onresize = objWindow;
-           
-            
+
+
         //  PROPIEDADES DE IFRAMES
-      
+
             let cad2 = "";
             cad2 += "<br> El numero de frames de la pagina es " + window.length;
             cad2 += "<br> La pagina actual no está insertada en un frame . frameElement devuelve: " + window.frameElement;
@@ -81,7 +81,7 @@
             let ventanaNueva;
 
             function crearVentana(){
-                /*  _self la abre en la misma pestaña 
+                /*  _self la abre en la misma pestaña
                     _parent te machaca al padre (osea si eres un iframe, pues lo abre el en la ventana que contenia el iframe).
                             Si eres ya la ventana normal y no tienes padre, lo abres en ti mismo, osea funcionaria como el self.
                     _blank abre una nueva pestaña
@@ -90,11 +90,11 @@
                 ventanaNueva.document.write("<head><title>Pagina Secundaria</title></head>");
 
                 let cad3 = "";
-                cad3 += "<br> El padre de la nueva ventana es: " + ventanaNueva.parent; // No tiene padre pero devuelve la ventana que la ha abierto, 
+                cad3 += "<br> El padre de la nueva ventana es: " + ventanaNueva.parent; // No tiene padre pero devuelve la ventana que la ha abierto,
                                                                                         // sin embargo no accede a la propiedad name, en fin, javascript
                 cad3 += "<br> La ventana que ha abierto la nueva es: " + ventanaNueva.opener.name;
                 cad3 += "<br> El padre del iframe2 es: " + window.frames[1].parent.name;
-                
+
                 document.getElementById("parrafo").innerHTML += cad3;
             }
 
@@ -104,32 +104,32 @@
 
             function redimensionarVentana(){
                 ventanaNueva.focus(); //para que no se mande atras al estar interactuando con la principal
-                ventanaNueva.resizeBy(10,10);  
+                ventanaNueva.resizeBy(10,10);
             }
 
             function moverVentana(){
                 ventanaNueva.focus();
-                ventanaNueva.moveBy(10,10);  
+                ventanaNueva.moveBy(10,10);
             }
 
-        //MÉTODOS DE INSTRUCCIONES DE TIEMPO    
+        //MÉTODOS DE INSTRUCCIONES DE TIEMPO
 
             function saludo(){
                alert("Hola")
             }
 
             let time;
-                      
+
             function retardoVentana(){
                time = window.setTimeout(saludo, 3000);
-               
+
             }
 
             function quitarRetardo(){
                window.clearTimeout(time); //Hay que ejecutar esto cuando ya el contador esté activo para poder cancelar ese alert ejecutado.
             }
 
-           
+
             function reloj(){
              let clk = new Date();
              document.getElementById("reloj").innerHTML = "Hora: " + clk.getHours() + ":" + clk.getMinutes() + ":" + clk.getSeconds();
@@ -149,5 +149,5 @@
         </script>
 
     </body>
-     
+
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3A03</title>
+</head>
+<body>
+    <p id="parrafo"></p>
+    <script>
+    let coordenada = prompt("Introduzca una coordenada válida:");
+
+    let patt = /\(\d{3},\d{3}\)/;
+    let resultado = patt.test(coordenada);
+    if (resultado) {
+        document.getElementById("parrafo").innerHTML = "La coordenada es válida"
+    } else {
+        document.getElementById("parrafo").innerHTML = "La coordenada no es válida, pulsa F5 para introducir otra."
+    }
+  </script>
+</body>
+</html>
