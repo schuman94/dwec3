@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .cuadro {
+            height: 50px;
+            width: 50px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function mostrarCuadros() {
+            let colorRGB = `background-color: rgb(${randomInt(0, 256)},${randomInt(0, 256)},${randomInt(0, 256)})`;
+            let top = `top: ${randomInt(0, window.innerHeight-50)}px`;
+            let left = `left: ${randomInt(0, window.innerWidth-50)}px`;
+            document.write(`<div class="cuadro" style="${colorRGB}; ${top}; ${left};"></div>`);
+        }
+
+        for (let i=0; i<2000; i++) {
+            mostrarCuadros();
+        }
+    </script>
+</body>
+</html>

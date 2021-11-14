@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <label for="frase">Introduce una frase:</label>
+    <input id="frase" name="frase" type="text">
+
+    <label for="inicio">Inicio:</label>
+    <input id="inicio" name="inicio" type="text">
+
+    <label for="fin">Fin:</label>
+    <input id="fin" name="fin" type="text">
+
+    <input type="button" value="Mostrar" onclick="extraer()">
+
+    <p id="oracion"></p>
+    <p id="delimitadores"></p>
+    <p id="slice"></p>
+
+    <script>
+        function extraer() {
+            let cadena = document.getElementById("frase").value;
+            let delimitadorInicio = document.getElementById("inicio").value;
+            let delimitadorFinal = document.getElementById("fin").value
+            let inicio = cadena.indexOf(delimitadorInicio);
+            let fin = cadena.indexOf(delimitadorFinal, inicio);
+
+
+            cadenaFinal = cadena.slice(inicio+1, fin);
+
+            document.getElementById("oracion").innerHTML = "La oración escrita es: \"" + cadena + "\"";
+            document.getElementById("delimitadores").innerHTML = `Los delimitadores dentro de la oración son: \"${delimitadorInicio}\" y \"${delimitadorFinal}\"`;
+            document.getElementById("slice").innerHTML = "La parte entre los delimitadores (su primera y última aparición): \"" + cadenaFinal + "\"";
+        }
+    </script>
+
+
+</body>
+</html>

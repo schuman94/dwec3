@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="hora">Introduce una hora: </label>
+    <input name="hora" id="hora" type="text">
+    <br>
+    <input type="button" value="Enviar" onclick="check()">
+    <p id="parrafo"></p>
+
+    <script>
+        let laHora = "La hora ";
+        let correcta = " es correcta.";
+        let incorrecta = " no es correcta, tiene que tener el formato hh:mm:ss o hh:mm.";
+
+        function check() {
+            let cadena = document.getElementById("hora").value.trim();
+            let patt = /^\d{2}:\d{2}(:\d{2})?$/;
+            let res = patt.test(cadena);
+            console.log(res);
+
+            document.getElementById("parrafo").innerHTML = laHora + cadena + (res ? correcta : incorrecta);
+        }
+    </script>
+</body>
+</html>
